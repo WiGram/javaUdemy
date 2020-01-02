@@ -11,5 +11,9 @@ public class Main {
 
         minutesToYearsDaysCalculator.printYearsAndDays(3);
         minutesToYearsDaysCalculator.printYearsAndDays(35490874);
+
+        IntEqualityPrinter.printEqual(3, 4, 4);
+        boolean catPlay = PlayingCat.isCatPlaying(true, 45);
+        System.out.println(catPlay);
     }
 }
