@@ -50,5 +50,7 @@ public class Main {
                 System.out.println("Not our kind of month");
                 break;
         }
+
+        DayOfWeekChallenge.printDayOfTheWeek(7);
     }
 }
