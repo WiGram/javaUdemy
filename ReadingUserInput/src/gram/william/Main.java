@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        /*
         // new-keyword is to create a new >>instance<< of class Scanner
         Scanner scanner = new Scanner(System.in);
 
@@ -27,5 +28,10 @@ public class Main {
         // recommended to close scanner when it is no longer needed to release storage
 
         scanner.close();
+
+         */
+
+        // ErrorHandled.UserInput();
+        SumUserInput.sumTenInputs();
     }
 }
