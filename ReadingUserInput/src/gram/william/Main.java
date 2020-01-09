@@ -32,6 +32,8 @@ public class Main {
          */
 
         // ErrorHandled.UserInput();
-        SumUserInput.sumTenInputs();
+        // SumUserInput.sumTenInputs();
+        // MinMaxChallenge.printMinMax();
+        InputCalculator.inputThenPrintSumAndAverage();
     }
 }
