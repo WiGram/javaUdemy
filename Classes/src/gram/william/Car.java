@@ -16,5 +16,18 @@ public class Car {
     private String colour;
     // Five fields that define the state of the car above.
 
+    public void setModel(String model) {
+        String validModel = model.toLowerCase();
+        if (validModel.equals("carrera") || validModel.equals("commodore")) {
+            // we wish to change the class field >model<. "this." works as "self."
+            this.model = model;
+        } else {
+            this.model = "Unknown";
+        }
+    }
+
+    public String getModel() {
+        return this.model;
+    }
 
 }

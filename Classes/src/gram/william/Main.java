@@ -12,6 +12,8 @@ public class Main {
         // porsche.equals();
 
         // porsche.model = "Carrera";  Against encapsulation - better make it private and add a method.
-        
+        System.out.println("Model is: " + porsche.getModel());
+        porsche.setModel("Carrera");
+        System.out.println("Model is: " + porsche.getModel());
     }
 }
