@@ -34,6 +34,7 @@ public class Main {
         // ErrorHandled.UserInput();
         // SumUserInput.sumTenInputs();
         // MinMaxChallenge.printMinMax();
-        InputCalculator.inputThenPrintSumAndAverage();
+        // InputCalculator.inputThenPrintSumAndAverage();
+        System.out.println(PaintJob.getBucketCount(2.75,3.25, 2.5, 1));
     }
 }
