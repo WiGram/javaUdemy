@@ -23,12 +23,18 @@ public class BankAccount {
     // Overloading constructor (must change no. of parameters)
     public BankAccount(int accountNumber, double balance,
                        String name, String email, int phoneNumber) {
+
+        // Most agree that constructors should define fields directly - not calling other methods
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         System.out.println("Account with user parameters called.");
+    }
+
+    public BankAccount(String name, String email, int phoneNumber) {
+        this(12345, 101.15, name, email, phoneNumber);
     }
 
     public void setAccountNumber(int accountNumber) {
