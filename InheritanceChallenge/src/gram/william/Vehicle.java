@@ -6,11 +6,13 @@ public class Vehicle {
     private int direction;
     private int speed;
 
-    public Vehicle(String name, String type, int direction, int speed) {
+    public Vehicle(String name, String type) {
         this.name = name;
         this.type = type;
-        this.direction = direction;
-        this.speed = speed;
+
+        // Default values for direction and speed
+        this.direction = 0;
+        this.speed = 0;
     }
 
     public void steer(int direction) {
