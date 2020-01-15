@@ -14,6 +14,24 @@ public class PC {
         this.motherboard = motherboard;
     }
 
+    public void powerUp() {
+
+        // Could make do with theCase. - see drawLogo method below
+        //getTheCase().pressPowerButton();
+        theCase.pressPowerButton();
+        drawLogo();
+    }
+
+    private void drawLogo() {
+        // fancy graphics here - we don't know how to do this yet
+
+        // We don't need this. - there is no ambiguity here since no inputs to the function exists
+        // We don't need getMonitor() - monitor. has the same method
+        this.monitor.drawPixelAt(1200, 50, "yellow");
+    }
+
+    /*
+    // The example from drawLogo shows we don't need getters.
     public Case getTheCase() {
         return theCase;
     }
@@ -25,4 +43,5 @@ public class PC {
     public Motherboard getMotherboard() {
         return motherboard;
     }
+     */
 }

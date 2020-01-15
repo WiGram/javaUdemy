@@ -2,6 +2,8 @@ package gram.william;
 
 public class Main {
 
+    // Composition - a master object to rule over other objects, as opposed to inheritance
+    //   we generally prefer composition to inheritance, even if there are exceptions.
     public static void main(String[] args) {
         Dimensions dimensions = new Dimensions(20, 20, 5);
 	    Case theCase = new Case("2208", "Dell", "240", dimensions);
@@ -21,9 +23,13 @@ public class Main {
 
 	    PC pc = new PC(theCase, monitor, motherboard);
 
+	    pc.powerUp();
+
+	    /*
 	    // Now, we want to access the subclasses' methods.
-       pc.getMonitor().drawPixelAt(1500, 1200, "red");
-       pc.getTheCase().pressPowerButton();
-       pc.getMotherboard().loadProgram("Windows 1.0");
+        pc.getMonitor().drawPixelAt(1500, 1200, "red");
+        pc.getTheCase().pressPowerButton();
+        pc.getMotherboard().loadProgram("Windows 1.0");
+	     */
     }
 }
