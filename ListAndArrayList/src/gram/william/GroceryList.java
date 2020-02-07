@@ -10,6 +10,10 @@ public class GroceryList {
     //  calling an empty constructor.
     private ArrayList<String> groceryList = new ArrayList<String>();
 
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
+    }
+
     public void addGroceryItem(String item) {
         // normally we would save an element into an array by using:
         //   newArray[x] = y;

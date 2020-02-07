@@ -1,5 +1,6 @@
 package gram.william;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -35,6 +36,9 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayList();
+                    break;
+                case 7:
                     quit = true;
                     break;
             }
@@ -80,6 +84,21 @@ public class Main {
         } else {
             System.out.println(searchItem + " is not in the shopping list");
         }
+    }
+
+    public static void processArrayList() {
+        ArrayList<String> newArray = new ArrayList<String>();
+        // Copy the array content
+        newArray.addAll(groceryList.getGroceryList());
+
+        // Or copy like this
+        ArrayList<String> nextArray = new ArrayList<String>(groceryList.getGroceryList());
+
+        // Take the contents of array list and turn into array.
+        // First step is to initialise a string array of the correct size.
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        // Second step is to fill it out.
+        myArray = groceryList.getGroceryList().toArray(myArray);
     }
 
     /*
