@@ -111,11 +111,14 @@ public class Playlist {
                     if (goingForward) {
                         if (listIterator.hasPrevious()) listIterator.previous();  // changes direction
                         System.out.println("Now playing " + listIterator.next().getTitle());
-                        listIterator.next();  // Go back to going forward
+                        listIterator.previous();  // Go back to going forward
+                        goingForward = false;
+
                     } else {
                         if (listIterator.hasNext()) listIterator.next();  // changes direction
                         System.out.println("Now playing " + listIterator.previous().getTitle());
-                        listIterator.previous();  // Go back to going backward
+                        listIterator.next();  // Go back to going backward
+                        goingForward = true;
                     }
                     break;
                 // 4 - print menu options
