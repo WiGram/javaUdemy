@@ -4,11 +4,25 @@ import javax.swing.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
         LinkedList<String> placesToVisit = new LinkedList<String>();
 
+        addInOrder(placesToVisit, "Sydney");
+        addInOrder(placesToVisit, "Melbourne");
+        addInOrder(placesToVisit, "Brisbane");
+        addInOrder(placesToVisit, "Perth");
+        addInOrder(placesToVisit, "Canberra");
+        addInOrder(placesToVisit, "Adelaide");
+        addInOrder(placesToVisit, "Darwin");
+
+        printList(placesToVisit);
+
+        visit(placesToVisit);
+
+        /*
         placesToVisit.add("Sydney");
         placesToVisit.add("Melbourne");
         placesToVisit.add("Brisbane");
@@ -26,6 +40,8 @@ public class Demo {
 
         placesToVisit.remove(4);
         printList(placesToVisit);
+
+         */
     }
 
     private static void printList(LinkedList<String> linkedList){
@@ -58,7 +74,7 @@ public class Demo {
             } else if (comparison > 0) {
                 // newCity should appear before this one
                 // Brisbane --> Adelaide (newCity)
-                stringListIterator.previous();  // moving back to before next
+                stringListIterator.previous();  // moving back to before next - possible because Java stores a reference to previous item also - not just next item
                 stringListIterator.add(newCity);
                 return true;
             } else if (comparison < 0) {
@@ -68,5 +84,77 @@ public class Demo {
 
         stringListIterator.add(newCity);
         return true;
+    }
+
+    private static void visit(LinkedList cities) {
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        boolean goingForward = true;
+        ListIterator<String> listIterator = cities.listIterator();
+
+        // Check if the linked list has any elements
+        if (cities.isEmpty()) {
+            System.out.println("No cities in the itinerary");
+        } else {
+            // .next() moves to the next entry
+            System.out.println("Now visiting " + listIterator.next());
+            printMenu();
+        }
+
+        while (!quit) {
+            int action = scanner.nextInt();
+            scanner.nextLine(); // Clears the input line after entered digit
+
+            switch (action){
+                case 0:
+                    System.out.println("Vacation over");
+                    quit = true;
+                    break;
+                // 1 - go to next city
+                case 1:
+                    // if not going forward and next exists - change direction
+                    if (!goingForward) {
+                        if (listIterator.hasNext()) listIterator.next();  // changes direction
+                        goingForward = true;  // tells us we've changed direction
+                    }
+
+                    if (listIterator.hasNext()) {
+                        System.out.println("Now visiting " + listIterator.next());
+                    } else {
+                        System.out.println("Reached end of the list");
+                        goingForward = false;  // we won't be going forward when at end
+                    }
+                    break;
+                // 2 - go to previous city
+                case 2:
+                    // if going forward and previous exists - change direction
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) listIterator.previous();  // changes direction
+                        goingForward = false;  // tells us we've changed direction
+                    }
+
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("Now visiting " + listIterator.previous());
+                    } else {
+                        System.out.println("We are at start of the list");
+                        goingForward = true;  // can only go forward when at beginning
+                    }
+                    break;
+                // 3 - print menu options
+                case 3:
+                    printMenu();
+                    break;
+            }
+        }
+    }
+
+    private static void printMenu() {
+        System.out.println("Available actions: \n press ");
+        System.out.println(
+                "0 - to quit \n" +
+                "1 - go to next city \n " +
+                "2 - go to previous city \n " +
+                "3 - print menu options"
+                );
     }
 }
